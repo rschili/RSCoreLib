@@ -101,8 +101,8 @@ namespace RSCoreLib.OS
                         }
                     }
 
-                string args = string.Format("{0}/T /PID {1}", force ? "/F " : "", p.Id);
-                Log.Information("Using Taskkill to shutdown process with id {0}", p.Id);
+                string args = $"{(force ? "/F " : string.Empty)}/T /PID {p.Id}";
+                Log.Information($"Using Taskkill to shutdown process with id {p.Id}");
                 ProcessStartInfo processStartInfo = new ProcessStartInfo("taskkill", args)
                     {
                     CreateNoWindow = true,
@@ -114,7 +114,7 @@ namespace RSCoreLib.OS
                 }
             catch(Exception e)
                 {
-                Log.Error("Interrupt termination of process threw exception. {0}", e.ToString());
+                Log.Error($"Interrupt termination of process threw exception. {e.Message}");
                 return false;
                 }
             }

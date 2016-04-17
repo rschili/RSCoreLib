@@ -5,11 +5,11 @@ namespace RSCoreLib
     {
     public static class Guard
         {
-        public static void NotNull(object value, [CallerMemberName] string caller = "", [CallerLineNumber] int callerLineNumber = 0)
+        public static void NotNull (object value, [CallerMemberName] string caller = "", [CallerLineNumber] int callerLineNumber = 0)
             {
             if (value == null)
                 {
-                Log.Error("Requirement: NotNull for caller {0} line {1} failed.", caller, callerLineNumber);
+                Log.Error($"Requirement: NotNull for caller {caller} line {callerLineNumber} failed.");
                 throw new ArgumentNullException();
                 }
             }
@@ -18,13 +18,13 @@ namespace RSCoreLib
             {
             if (value == null)
                 {
-                Log.Error("Throwing ArgumentNullException for caller {0} line {1}", caller, callerLineNumber);
+                Log.Error($"Requirement: NotNull for caller {caller} line {callerLineNumber} failed.");
                 throw new ArgumentNullException();
                 }
 
             if (string.IsNullOrWhiteSpace(value))
                 {
-                Log.Error("Requirement: NotNullOrWhitespace for caller {0} line {1} failed.", caller, callerLineNumber);
+                Log.Error($"Requirement: NotNullOrWhitespace for caller { caller} line {callerLineNumber} failed.");
                 throw new ArgumentException("String must not be null, empty or whitespaces.");
                 }
             }

@@ -21,7 +21,7 @@ namespace RSCoreLib.OS
 
         public override string ToString ()
             {
-            return string.Format("Command: '{0}'. Success={1} (Errors: {2}, ReturnCode: {3}) Lines Retrieved: {4}", Command, Success, ErrorCount, ReturnCode, RetrievedLinesOfOutput);
+            return $"Command: '{Command}'. Success={Success} (Errors: {ErrorCount}, ReturnCode: {ReturnCode}) Lines Retrieved: {RetrievedLinesOfOutput}";
             }
         }
 
@@ -146,8 +146,7 @@ namespace RSCoreLib.OS
                     }
                 }
 
-            if (OutputHandler != null)
-                OutputHandler(so);
+            OutputHandler?.Invoke(so);
 
             //otherwise just dispose of it.
             }
