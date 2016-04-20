@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using System.Text;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace RSCoreLib
     {
@@ -53,6 +54,17 @@ namespace RSCoreLib
                 }
 
             return i;
+            }
+        }
+
+    public static class StringExtensions
+        {
+        public static bool Matches(this string s, string pattern, bool ignoreCase = false)
+            {
+            if (pattern == "*")
+                return true; //shortcut, the method below is heavy!
+
+            return LikeOperator.LikeString(s, pattern, ignoreCase ? Microsoft.VisualBasic.CompareMethod.Text : Microsoft.VisualBasic.CompareMethod.Binary);
             }
         }
     }

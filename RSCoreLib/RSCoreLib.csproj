@@ -41,6 +41,7 @@
       <HintPath>$(SolutionDir)packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -79,6 +80,7 @@
     <Compile Include="RandomStringGenerator.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="TaskExtensions.cs" />
+    <Compile Include="UserfriendlyException.cs" />
     <Compile Include="Web\WebHelper.cs" />
     <Compile Include="OS\ClipboardHelper.cs" />
     <Compile Include="WPF\Behaviors.cs" />
