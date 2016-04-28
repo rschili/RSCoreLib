@@ -61,6 +61,9 @@ namespace RSCoreLib
         {
         public static bool Matches(this string s, string pattern, bool ignoreCase = false)
             {
+            if (s == null || pattern == null)
+                return false;
+
             if (pattern == "*")
                 return true; //shortcut, the method below is heavy!
 
